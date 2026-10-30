@@ -1,0 +1,1 @@
+sed -i 's/const influencerName = matchedInf?.name || '"'Assigned Content Creator'"';/const influencerName = matchedInf?.name || (task.influencerId ? `Assigned Content Creator (Missing\/Deleted: ${task.influencerId})` : '"'Assigned Content Creator (No ID)'"');/g' src/components/VideoCampaignDashboard.tsx

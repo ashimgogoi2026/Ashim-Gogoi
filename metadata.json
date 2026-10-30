@@ -1,0 +1,6 @@
+{
+  "name": "Influencer Manager",
+  "description": "End-to-end campaign management platform featuring a clean red and white design, searchable database, workflow tracking, real-time analytics, exportable reports, contracts, and AI Recommendations powered by Gemini.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

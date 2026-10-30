@@ -1,0 +1,212 @@
+{
+  "influencers": [
+    {
+      "costPerPost": 0,
+      "averageROI": 3.2,
+      "notes": "Talked for collaboration / tag with PRO TO GROW\n10/06/2026 08:22 PM - \nScreen Shot received",
+      "id": "inf-1780234045488",
+      "location": "Kamrup Metropolitan, Assam",
+      "status": "Available",
+      "perfRanking": 1,
+      "engagementRate": 4.5,
+      "topDemographics": [
+        {
+          "percentage": 45,
+          "ageRange": "18-24"
+        },
+        {
+          "percentage": 40,
+          "ageRange": "25-34"
+        }
+      ],
+      "mobile": "+918099092685",
+      "handle": "@debajanibora",
+      "ownerId": "b4WqNgDLrUfBMBkPwKK6SmPfEZF2",
+      "niche": "General Lifestyle",
+      "followers": 0,
+      "rating": 4.3,
+      "name": "DEBAJANI BORA",
+      "gender": "Female",
+      "platforms": [
+        {
+          "name": "Instagram",
+          "followers": "100K"
+        }
+      ]
+    },
+    {
+      "niche": "General Lifestyle",
+      "ownerId": "b4WqNgDLrUfBMBkPwKK6SmPfEZF2",
+      "handle": "@debolotahazarika",
+      "mobile": "+916282858465",
+      "name": "DEBOLOTA HAZARIKA",
+      "platforms": [
+        {
+          "name": "Instagram",
+          "followers": "100K"
+        }
+      ],
+      "gender": "Female",
+      "followers": 0,
+      "rating": 4.4,
+      "topDemographics": [
+        {
+          "percentage": 45,
+          "ageRange": "18-24"
+        },
+        {
+          "percentage": 40,
+          "ageRange": "25-34"
+        }
+      ],
+      "averageROI": 3.2,
+      "id": "inf-1780237353308",
+      "costPerPost": 0,
+      "engagementRate": 4.5,
+      "perfRanking": 2,
+      "location": "Kamrup Metropolitan, Assam",
+      "status": "Available"
+    },
+    {
+      "id": "inf-1553",
+      "name": "Wasima Ahmed",
+      "handle": "@wasimaahmed",
+      "mobile": "+919435123456",
+      "ownerId": "b4WqNgDLrUfBMBkPwKK6SmPfEZF2",
+      "niche": "Lifestyle & Food",
+      "followers": 150000,
+      "rating": 4.5,
+      "status": "Available",
+      "location": "Assam, India",
+      "platforms": [
+        { "name": "Instagram", "followers": "150K" },
+        { "name": "Facebook", "followers": "50K" }
+      ]
+    },
+    {
+      "id": "inf-1552",
+      "name": "Daisy Das",
+      "handle": "@daisydas",
+      "mobile": "+919864012345",
+      "ownerId": "b4WqNgDLrUfBMBkPwKK6SmPfEZF2",
+      "niche": "Health & Nutrition",
+      "followers": 85000,
+      "rating": 4.4,
+      "status": "Available",
+      "location": "Guwahati, Assam",
+      "platforms": [
+        { "name": "Facebook", "followers": "85K" }
+      ]
+    },
+    {
+      "id": "inf-1551",
+      "name": "Sanchita Phukan",
+      "handle": "@sanchitaphukan",
+      "mobile": "+918638123456",
+      "ownerId": "b4WqNgDLrUfBMBkPwKK6SmPfEZF2",
+      "niche": "Lifestyle",
+      "followers": 120000,
+      "rating": 4.6,
+      "status": "Available",
+      "location": "Jorhat, Assam",
+      "platforms": [
+        { "name": "Facebook", "followers": "120K" }
+      ]
+    },
+    {
+      "id": "inf-1549",
+      "name": "Anwesha Ghosh",
+      "handle": "@anweshaghosh",
+      "mobile": "+919706123456",
+      "ownerId": "b4WqNgDLrUfBMBkPwKK6SmPfEZF2",
+      "niche": "Fitness & Lifestyle",
+      "followers": 95000,
+      "rating": 4.3,
+      "status": "Available",
+      "location": "Assam, India",
+      "platforms": [
+        { "name": "Instagram", "followers": "95K" }
+      ]
+    },
+    {
+      "id": "inf-1548",
+      "name": "Partha Sarathi",
+      "handle": "@parthasarathi",
+      "mobile": "+919859123456",
+      "ownerId": "b4WqNgDLrUfBMBkPwKK6SmPfEZF2",
+      "niche": "Entertainment",
+      "followers": 110000,
+      "rating": 4.5,
+      "status": "Available",
+      "location": "Assam, India",
+      "platforms": [
+        { "name": "Instagram", "followers": "110K" }
+      ]
+    },
+    {
+      "id": "inf-1547",
+      "name": "Shirushree Saikia",
+      "handle": "@shirushreesaikia",
+      "mobile": "+919954123456",
+      "ownerId": "b4WqNgDLrUfBMBkPwKK6SmPfEZF2",
+      "niche": "Fashion & Lifestyle",
+      "followers": 75000,
+      "rating": 4.2,
+      "status": "Available",
+      "location": "Dibrugarh, Assam",
+      "platforms": [
+        { "name": "Instagram", "followers": "75K" }
+      ]
+    },
+    {
+      "id": "inf-1546",
+      "name": "Sree",
+      "handle": "@sree",
+      "mobile": "+919101123456",
+      "ownerId": "b4WqNgDLrUfBMBkPwKK6SmPfEZF2",
+      "niche": "General Lifestyle",
+      "followers": 60000,
+      "rating": 4.1,
+      "status": "Available",
+      "location": "Assam, India",
+      "platforms": [
+        { "name": "Instagram", "followers": "60K" }
+      ]
+    },
+    {
+      "id": "inf-1545",
+      "name": "Thanthani Tuallawt",
+      "handle": "@thanthanituallawt",
+      "mobile": "+919612123456",
+      "ownerId": "b4WqNgDLrUfBMBkPwKK6SmPfEZF2",
+      "niche": "Food & Beverages",
+      "followers": 80000,
+      "rating": 4.3,
+      "status": "Available",
+      "location": "Mizoram / Assam",
+      "platforms": [
+        { "name": "Instagram", "followers": "80K" }
+      ]
+    },
+    {
+      "id": "inf-1544",
+      "name": "Dapalei Linna Warjri",
+      "handle": "@dapaleilinnawarjri",
+      "mobile": "+919862123456",
+      "ownerId": "b4WqNgDLrUfBMBkPwKK6SmPfEZF2",
+      "niche": "Lifestyle & Wellness",
+      "followers": 90000,
+      "rating": 4.4,
+      "status": "Available",
+      "location": "Meghalaya / Assam",
+      "platforms": [
+        { "name": "Instagram", "followers": "90K" }
+      ]
+    }
+  ],
+  "campaigns": [],
+  "tasks": [],
+  "messages": [],
+  "contracts": [],
+  "billingEntries": []
+}

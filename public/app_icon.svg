@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Eye-safe premium red background with rounded squircle for modern Android look -->
+  <rect width="512" height="512" rx="100" fill="#dc2626" />
+  
+  <!-- Sleek background grid overlay -->
+  <path d="M0 128h512M0 256h512M0 384h512M128 0v512M256 0v512M384 0v512" stroke="rgba(255,255,255,0.05)" stroke-width="2" />
+  
+  <!-- Styled dynamic glowing elements -->
+  <circle cx="256" cy="256" r="140" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="40" />
+  <circle cx="256" cy="256" r="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="20" />
+  
+  <!-- Dynamic modern 'I' icon representing Influencer/Impact with data lines -->
+  <g transform="translate(186, 126)" fill="#ffffff">
+    <!-- Star/Impact burst on top right -->
+    <path d="M120 10l5 15h15l-12 10 4 15-12-10-12 10 4-15-12-10h15z" fill="#fef08a" />
+    
+    <!-- Bold letter I with sleek geometric angles -->
+    <path d="M15 0h110c8 0 15 7 15 15v15c0 8-7 15-15 15H95v170h30c8 0 15 7 15 15v15c0 8-7 15-15 15H15c-8 0-15-7-15-15v-15c0-8 7-15 15-15h30V45H15c-8 0-15-7-15-15V15C0 7 7 0 15 0z" />
+    
+    <!-- Connected node circles mimicking network engagement -->
+    <circle cx="70" cy="115" r="16" fill="#fcfcfc" opacity="0.9" />
+    <path d="M 70 45 L 70 99" stroke="#dc2626" stroke-width="6" stroke-dasharray="2,2" />
+    <path d="M 70 131 L 70 215" stroke="#dc2626" stroke-width="6" stroke-dasharray="2,2" />
+  </g>
+</svg>

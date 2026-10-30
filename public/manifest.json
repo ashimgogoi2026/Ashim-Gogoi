@@ -1,0 +1,30 @@
+{
+  "name": "Influencer Manager",
+  "short_name": "ProToGrow",
+  "description": "End-to-end campaign management platform featuring searchable database, work planning, and AI Recommendations.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#dc2626",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/app_icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Campaign Planner",
+      "url": "/?tab=planner",
+      "description": "Plan and schedule releases"
+    },
+    {
+      "name": "Influencer Database",
+      "url": "/?tab=database",
+      "description": "Search and manage influencer profiles"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { margin: 0; padding: 20px; font-family: sans-serif; }
+  .grandparent {
+    width: 200px; /* representing w-[90%] max-w-[400px] */
+    border: 2px solid blue;
+    display: flex;
+    flex-direction: column;
+  }
+  .parent {
+    width: 100%; /* w-full */
+    background: green;
+    overflow: hidden;
+    display: flex;
+    border-radius: 9999px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .child {
+    background: red;
+    white-space: nowrap;
+    position: relative;
+    width: max-content; /* w-max */
+    animation: bounce 2s linear infinite alternate;
+  }
+  @keyframes bounce {
+    0% { left: 0%; transform: translateX(0%); }
+    100% { left: 100%; transform: translateX(-100%); }
+  }
+</style>
+</head>
+<body>
+  <div class="grandparent">
+    <div class="parent">
+      <div class="child">This is a really long text that will surely overflow the 200px limit</div>
+    </div>
+  </div>
+</body>
+</html>

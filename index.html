@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Influencer Manager - Sponsorship & Campaign Platform</title>
+    <!-- Android/PWA Support -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#dc2626" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="apple-touch-icon" href="/app_icon.svg" />
+    
+    <!-- Suppress harmless iframe environment WebSocket/HMR transport errors -->
+    <script>
+      (function() {
+        if (typeof window === 'undefined') return;
+
+        // Catch and prevent default on any WebSocket / Vite transport unhandled errors
+        function suppressViteErrors(e) {
+          var r = e.reason || e.error || e;
+          var isViteWs = false;
+          if (!r) {
+            isViteWs = true;
+          } else if (typeof r === 'object') {
+            if (r instanceof Event || r.type === 'error' || (r.target && (r.target instanceof WebSocket || r.target.url))) {
+              isViteWs = true;
+            }
+            var msg = (r.message || String(r) || '');
+            var stack = r.stack || '';
+            if (msg.includes('WebSocket') || msg.includes('@vite') || msg.includes('transport') || stack.includes('@vite/client') || stack.includes('createWebSocketModuleRunnerTransport')) {
+              isViteWs = true;
+            }
+          } else if (typeof r === 'string' && (r.includes('WebSocket') || r.includes('@vite'))) {
+            isViteWs = true;
+          }
+          if (isViteWs) {
+            if (typeof e.preventDefault === 'function') e.preventDefault();
+            if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
+            return true;
+          }
+        }
+
+        window.addEventListener('unhandledrejection', suppressViteErrors, true);
+        window.addEventListener('error', function(e) {
+          var msg = e.message || '';
+          var file = e.filename || '';
+          if (msg.includes('WebSocket') || file.includes('@vite/client') || msg.includes('createWebSocketModuleRunnerTransport') || suppressViteErrors(e)) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+          }
+        }, true);
+
+        // Safe mock WebSocket for Vite HMR in restricted iframe environments
+        var NativeWebSocket = window.WebSocket;
+        function MockWebSocket(url, protocols) {
+          var self = this;
+          this.url = String(url || '');
+          this.protocols = protocols;
+          this.readyState = 0; // CONNECTING
+          this.binaryType = 'blob';
+          this.bufferedAmount = 0;
+          this.extensions = '';
+          this.protocol = '';
+          this.onopen = null;
+          this.onclose = null;
+          this.onerror = null;
+          this.onmessage = null;
+
+          var listeners = { open: [], close: [], error: [], message: [] };
+
+          this.addEventListener = function(type, listener) {
+            if (listeners[type] && typeof listener === 'function') {
+              listeners[type].push(listener);
+            }
+          };
+
+          this.removeEventListener = function(type, listener) {
+            if (listeners[type]) {
+              var idx = listeners[type].indexOf(listener);
+              if (idx !== -1) listeners[type].splice(idx, 1);
+            }
+          };
+
+          this.dispatchEvent = function(event) {
+            var list = listeners[event.type] || [];
+            for (var i = 0; i < list.length; i++) {
+              try { list[i].call(self, event); } catch (_) {}
+            }
+            var handler = self['on' + event.type];
+            if (typeof handler === 'function') {
+              try { handler.call(self, event); } catch (_) {}
+            }
+            return true;
+          };
+
+          this.send = function() {};
+          this.close = function(code, reason) {
+            self.readyState = 3;
+            self.dispatchEvent({ type: 'close', wasClean: true, code: code || 1000, reason: reason || '', target: self });
+          };
+
+          setTimeout(function() {
+            if (self.readyState === 0) {
+              self.readyState = 1; // OPEN
+              self.dispatchEvent({ type: 'open', target: self });
+            }
+          }, 0);
+        }
+
+        MockWebSocket.CONNECTING = 0;
+        MockWebSocket.OPEN = 1;
+        MockWebSocket.CLOSING = 2;
+        MockWebSocket.CLOSED = 3;
+
+        window.WebSocket = function(url, protocols) {
+          var urlStr = String(url || '');
+          if (urlStr.includes('vite') || urlStr.includes('hmr') || (protocols && String(protocols).includes('vite')) || !NativeWebSocket) {
+            return new MockWebSocket(url, protocols);
+          }
+          try {
+            return new NativeWebSocket(url, protocols);
+          } catch (e) {
+            return new MockWebSocket(url, protocols);
+          }
+        };
+
+        window.WebSocket.CONNECTING = 0;
+        window.WebSocket.OPEN = 1;
+        window.WebSocket.CLOSING = 2;
+        window.WebSocket.CLOSED = 3;
+      })();
+    </script>
+
+    <!-- Google Analytics Tracking (Global Site Tag) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=%VITE_GA_MEASUREMENT_ID%"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '%VITE_GA_MEASUREMENT_ID%');
+    </script>
+    
+    <!-- PWA Service Worker & Cache Reset -->
+    <script>
+      if ('caches' in window) {
+        caches.keys().then(function(keys) {
+          keys.forEach(function(key) {
+            if (key !== 'influencer-pro-v4') {
+              caches.delete(key);
+            }
+          });
+        }).catch(function() {});
+      }
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              registration.update();
+            })
+            .catch(() => {});
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

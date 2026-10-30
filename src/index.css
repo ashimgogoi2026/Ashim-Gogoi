@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-primary-50: var(--theme-50);
+  --color-primary-100: var(--theme-100);
+  --color-primary-200: var(--theme-200);
+  --color-primary-300: var(--theme-300);
+  --color-primary-400: var(--theme-400);
+  --color-primary-500: var(--theme-500);
+  --color-primary-600: var(--theme-600);
+  --color-primary-700: var(--theme-700);
+  --color-primary-800: var(--theme-800);
+  --color-primary-900: var(--theme-900);
+
+  /* Redefine gray as beautiful warm high-contrast linen stone shades */
+  --color-gray-50: #FAF8F5; /* warm soft cotton */
+  --color-gray-100: #F3EFE9; /* warm smooth sand */
+  --color-gray-150: #E6DFD3; /* light organic divider */
+  --color-gray-200: #DACFBD; /* clear warm divider line */
+  --color-gray-250: #BEB09B; /* focus border line */
+  --color-gray-300: #A89882;
+  --color-gray-450: #746452;
+  --color-gray-500: #625442;
+  --color-gray-600: #4D4132; /* comfortable organic dark font */
+  --color-gray-700: #362D22;
+  --color-gray-800: #201A14;
+  --color-gray-900: #130E0A;
+}
+
+/* Base font-weight overrides to enforce bolding for readability and high vividness */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-gray-50);
+  color: var(--color-gray-800);
+}
+
+/* Enforce distinct black/bold font weight globally to satisfy "make the words bold" */
+p, span, td, th, div, label, input, select, textarea, button, a {
+  font-weight: 750 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 850 !important;
+}
+
+/* Additional eye comfort refinements */
+body, input, select, textarea, table {
+  text-shadow: 0.1px 0.1px 0.1px rgba(0, 0, 0, 0.05);
+}
+
+::placeholder {
+  color: var(--color-gray-450) !important;
+  font-weight: 700 !important;
+}
+
+/* Eye-Comfort Workspace Theme Rules */
+html[data-theme='classic'], html[data-theme='classic'] body {
+  background-color: #f0f9ff;
+  color: #1e293b;
+}
+
+html[data-theme='green'], html[data-theme='green'] body {
+  background-color: #dcfce7;
+  color: #052e16;
+  --theme-50: #f0fdf4;
+  --theme-100: #dcfce7;
+  --theme-200: #bbf7d0;
+  --theme-300: #86efac;
+  --theme-400: #4ade80;
+  --theme-500: #22c55e;
+  --theme-600: #16a34a;
+  --theme-700: #15803d;
+  --theme-800: #166534;
+  --theme-900: #14532d;
+}
+html[data-theme='green'] .bg-white {
+  background-color: #f0fdf4 !important;
+  border-color: #86efac !important;
+}
+html[data-theme='green'] .bg-sky-50,
+html[data-theme='green'] .bg-sky-50\/50,
+html[data-theme='green'] .bg-gray-50,
+html[data-theme='green'] .bg-slate-50,
+html[data-theme='green'] .bg-gray-100,
+html[data-theme='green'] .bg-slate-100 {
+  background-color: #dcfce7 !important;
+}
+html[data-theme='green'] .border-gray-150,
+html[data-theme='green'] .border-gray-200,
+html[data-theme='green'] .border-slate-200,
+html[data-theme='green'] .border-slate-300 {
+  border-color: #86efac !important;
+}
+
+html[data-theme='warm-sand'], html[data-theme='warm-sand'] body {
+  background-color: #f4efe6;
+  color: #23292f;
+}
+html[data-theme='warm-sand'] .bg-white {
+  background-color: #fcfaf5 !important;
+  border-color: #ded4c3 !important;
+}
+html[data-theme='warm-sand'] .bg-sky-50,
+html[data-theme='warm-sand'] .bg-sky-50\/50,
+html[data-theme='warm-sand'] .bg-gray-50 {
+  background-color: #f4efe6 !important;
+}
+html[data-theme='warm-sand'] .border-gray-200,
+html[data-theme='warm-sand'] .border-slate-200 {
+  border-color: #ded4c3 !important;
+}
+
+html[data-theme='calm-sage'], html[data-theme='calm-sage'] body {
+  background-color: #ebf2ec;
+  color: #1c2c21;
+}
+html[data-theme='calm-sage'] .bg-white {
+  background-color: #f7faf8 !important;
+  border-color: #c8dbcc !important;
+}
+html[data-theme='calm-sage'] .bg-sky-50,
+html[data-theme='calm-sage'] .bg-sky-50\/50,
+html[data-theme='calm-sage'] .bg-gray-50 {
+  background-color: #ebf2ec !important;
+}
+html[data-theme='calm-sage'] .border-gray-200,
+html[data-theme='calm-sage'] .border-slate-200 {
+  border-color: #c8dbcc !important;
+}
+
+html[data-theme='soft-slate'], html[data-theme='soft-slate'] body {
+  background-color: #eaeff6;
+  color: #1a2636;
+}
+html[data-theme='soft-slate'] .bg-white {
+  background-color: #f7f9fd !important;
+  border-color: #c9d6e7 !important;
+}
+html[data-theme='soft-slate'] .bg-sky-50,
+html[data-theme='soft-slate'] .bg-sky-50\/50,
+html[data-theme='soft-slate'] .bg-gray-50 {
+  background-color: #eaeff6 !important;
+}
+html[data-theme='soft-slate'] .border-gray-200,
+html[data-theme='soft-slate'] .border-slate-200 {
+  border-color: #c9d6e7 !important;
+}
+
+html[data-theme='desert-clay'], html[data-theme='desert-clay'] body {
+  background-color: #f7f1ed;
+  color: #2e211e;
+}
+html[data-theme='desert-clay'] .bg-white {
+  background-color: #fdf9f7 !important;
+  border-color: #dfcfc7 !important;
+}
+html[data-theme='desert-clay'] .bg-sky-50,
+html[data-theme='desert-clay'] .bg-sky-50\/50,
+html[data-theme='desert-clay'] .bg-gray-50 {
+  background-color: #f7f1ed !important;
+}
+html[data-theme='desert-clay'] .border-gray-200,
+html[data-theme='desert-clay'] .border-slate-200 {
+  border-color: #dfcfc7 !important;
+}
+
+html[data-theme='nordic-frost'], html[data-theme='nordic-frost'] body {
+  background-color: #edf4f6;
+  color: #182a32;
+}
+html[data-theme='nordic-frost'] .bg-white {
+  background-color: #f7fbfc !important;
+  border-color: #c4d9e0 !important;
+}
+html[data-theme='nordic-frost'] .bg-sky-50,
+html[data-theme='nordic-frost'] .bg-sky-50\/50,
+html[data-theme='nordic-frost'] .bg-gray-50 {
+  background-color: #edf4f6 !important;
+}
+html[data-theme='nordic-frost'] .border-gray-200,
+html[data-theme='nordic-frost'] .border-slate-200 {
+  border-color: #c4d9e0 !important;
+}
+
+html[data-theme='earthy-olive'], html[data-theme='earthy-olive'] body {
+  background-color: #f0f3eb;
+  color: #1e2817;
+}
+html[data-theme='earthy-olive'] .bg-white {
+  background-color: #f9faf6 !important;
+  border-color: #cbd5c0 !important;
+}
+html[data-theme='earthy-olive'] .bg-sky-50,
+html[data-theme='earthy-olive'] .bg-sky-50\/50,
+html[data-theme='earthy-olive'] .bg-gray-50 {
+  background-color: #f0f3eb !important;
+}
+html[data-theme='earthy-olive'] .border-gray-200,
+html[data-theme='earthy-olive'] .border-slate-200 {
+  border-color: #cbd5c0 !important;
+}
+
+html[data-theme='dimmed'], html[data-theme='dimmed'] body {
+  background-color: #181d24;
+  color: #d6deeb;
+}
+html[data-theme='dimmed'] .bg-white {
+  background-color: #212732 !important;
+  border-color: #333c4c !important;
+  color: #f0f4f8 !important;
+}
+html[data-theme='dimmed'] .bg-sky-50,
+html[data-theme='dimmed'] .bg-sky-50\/50,
+html[data-theme='dimmed'] .bg-gray-50,
+html[data-theme='dimmed'] .bg-slate-50 {
+  background-color: #181d24 !important;
+  color: #d6deeb !important;
+}
+html[data-theme='dimmed'] .text-gray-900,
+html[data-theme='dimmed'] .text-gray-800,
+html[data-theme='dimmed'] .text-slate-900,
+html[data-theme='dimmed'] .text-slate-800 {
+  color: #f0f4f8 !important;
+}
+html[data-theme='dimmed'] .text-gray-500,
+html[data-theme='dimmed'] .text-gray-600,
+html[data-theme='dimmed'] .text-slate-500,
+html[data-theme='dimmed'] .text-slate-600 {
+  color: #9ba8bc !important;
+}
+html[data-theme='dimmed'] .border-gray-200,
+html[data-theme='dimmed'] .border-slate-200 {
+  border-color: #333c4c !important;
+}
+
+/* Custom modern scrollbar styles */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #fdfdfd;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-gray-250);
+  border-radius: 9999px;
+  border: 2px solid #fdfdfd;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-300);
+}
+
+:root, .theme-red {
+  /* Default Red */
+  --theme-50: #fef2f2;
+  --theme-100: #fee2e2;
+  --theme-200: #fecaca;
+  --theme-300: #fca5a5;
+  --theme-400: #f87171;
+  --theme-500: #ef4444;
+  --theme-600: #dc2626;
+  --theme-700: #b91c1c;
+  --theme-800: #991b1b;
+  --theme-900: #7f1d1d;
+}
+
+.theme-teal {
+  --theme-50: #f2faf6;
+  --theme-100: #d6f0df;
+  --theme-200: #a7dcb9;
+  --theme-300: #70c198;
+  --theme-400: #42a179;
+  --theme-500: #108a65;
+  --theme-600: #0f7354;
+  --theme-700: #094734;
+  --theme-800: #052b1f;
+  --theme-900: #031c14;
+}
+
+.theme-blue {
+  --theme-50: #eff6ff;
+  --theme-100: #dbeafe;
+  --theme-200: #bfdbfe;
+  --theme-300: #93c5fd;
+  --theme-400: #60a5fa;
+  --theme-500: #3b82f6;
+  --theme-600: #2563eb;
+  --theme-700: #1d4ed8;
+  --theme-800: #1e40af;
+  --theme-900: #1e3a8a;
+}
+
+.theme-emerald {
+  --theme-50: #ecfdf5;
+  --theme-100: #d1fae5;
+  --theme-200: #a7f3d0;
+  --theme-300: #6ee7b7;
+  --theme-400: #34d399;
+  --theme-500: #10b981;
+  --theme-600: #059669;
+  --theme-700: #047857;
+  --theme-800: #065f46;
+  --theme-900: #064e3b;
+}
+
+.theme-purple {
+  --theme-50: #faf5ff;
+  --theme-100: #f3e8ff;
+  --theme-200: #e9d5ff;
+  --theme-300: #d8b4fe;
+  --theme-400: #c084fc;
+  --theme-500: #a855f7;
+  --theme-600: #9333ea;
+  --theme-700: #7e22ce;
+  --theme-800: #6b21a8;
+  --theme-900: #581c87;
+}
+
+.theme-amber {
+  --theme-50: #fffbeb;
+  --theme-100: #fef3c7;
+  --theme-200: #fde68a;
+  --theme-300: #fcd34d;
+  --theme-400: #fbbf24;
+  --theme-500: #f59e0b;
+  --theme-600: #d97706;
+  --theme-700: #b45309;
+  --theme-800: #92400e;
+  --theme-900: #78350f;
+}
+
+
+/* Fix html-to-image backdrop-filter rendering bug */
+.is-downloading .backdrop-blur-md,
+.is-downloading .backdrop-blur-sm,
+.is-downloading .backdrop-blur-lg {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.is-downloading * {
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+.is-downloading,
+.is-downloading * {
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+

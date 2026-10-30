@@ -1,0 +1,65 @@
+--- src/App.tsx
++++ src/App.tsx
+@@ -2634,6 +2634,63 @@
+     }
+   };
+ 
++  const handleAutoSyncSalesData = useCallback(() => {
++    if (!salesData || salesData.length === 0) {
++      globalToast.error("No Sales Data to sync. Please upload E-Commerce Sales data first.");
++      return;
++    }
++    
++    setMonthlyTargets(prevTargets => {
++      const updates = new Map();
++      
++      salesData.forEach(row => {
++        if (!row.year || !row.month || !row.productName) return;
++        const year = String(row.year).trim();
++        const month = String(row.month).trim();
++        const product = String(row.productName).trim();
++        
++        let weekNum = 0;
++        if (typeof row.week === 'string') {
++           const match = row.week.match(/\d+/);
++           if (match) weekNum = parseInt(match[0], 10);
++        } else if (typeof row.week === 'number') {
++           weekNum = row.week;
++        }
++        if (weekNum < 1 || weekNum > 5) return; // Map strictly to weeks 1-5
++        
++        const grossSales = parseFloat(row.grossSales) || parseFloat(row['Gross Sales']) || 0;
++        const quantity = parseFloat(row.quantity) || parseFloat(row['Quantity']) || 0;
++        
++        const key = `${year}-${month}-${product.toLowerCase()}`;
++        if (!updates.has(key)) {
++          updates.set(key, { year, month, productName: product, salesAmountWeek1: 0, salesAmountWeek2: 0, salesAmountWeek3: 0, salesAmountWeek4: 0, salesAmountWeek5: 0, quantitySold: 0 });
++        }
++        
++        const current = updates.get(key);
++        current[`salesAmountWeek${weekNum}`] += grossSales;
++        current.quantitySold += quantity;
++      });
++      
++      const newTargets = [...prevTargets];
++      
++      updates.forEach((updateData) => {
++        const existingIdx = newTargets.findIndex(t => t.year === updateData.year && t.month === updateData.month && (t.productName || '').toLowerCase() === updateData.productName.toLowerCase());
++        const totalSales = updateData.salesAmountWeek1 + updateData.salesAmountWeek2 + updateData.salesAmountWeek3 + updateData.salesAmountWeek4 + updateData.salesAmountWeek5;
++        
++        if (existingIdx >= 0) {
++           newTargets[existingIdx] = { ...newTargets[existingIdx], salesAmountWeek1: updateData.salesAmountWeek1, salesAmountWeek2: updateData.salesAmountWeek2, salesAmountWeek3: updateData.salesAmountWeek3, salesAmountWeek4: updateData.salesAmountWeek4, salesAmountWeek5: updateData.salesAmountWeek5, salesAmount: totalSales, quantitySold: updateData.quantitySold };
++        } else {
++           newTargets.push({ id: `mt-${Date.now()}-${Math.random().toString(36).substr(2, 5)}`, year: updateData.year, month: updateData.month, productName: updateData.productName, salesAmountWeek1: updateData.salesAmountWeek1, salesAmountWeek2: updateData.salesAmountWeek2, salesAmountWeek3: updateData.salesAmountWeek3, salesAmountWeek4: updateData.salesAmountWeek4, salesAmountWeek5: updateData.salesAmountWeek5, salesAmount: totalSales, quantitySold: updateData.quantitySold });
++        }
++      });
++      
++      return newTargets;
++    });
++    
++    // Optionally, could also add these products to dashboardProducts if not there
++  }, [salesData]);
++
+   const handleManualLocalExport = () => {
+     try {
+       const payload = {

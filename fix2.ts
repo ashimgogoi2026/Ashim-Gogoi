@@ -1,0 +1,16 @@
+import fs from 'fs';
+let content = fs.readFileSync('src/components/ShortioTracker.tsx', 'utf-8');
+
+content = content.replace(/const currentVal = \(l\.clicks \|\| 0\);/g, 'const currentVal = l.humanClicks !== undefined ? l.humanClicks : (l.clicks || 0);');
+content = content.replace(/let activeClicks = item\.manualClicksOverride \!\=\= undefined \? item\.manualClicksOverride \: \(item\.clicks \|\| 0\);/g, 'let activeClicks = item.manualClicksOverride !== undefined ? item.manualClicksOverride : (item.humanClicks !== undefined ? item.humanClicks : (item.clicks || 0));');
+content = content.replace(/acc \+ \(item\.manualClicksOverride \!\=\= undefined \? item\.manualClicksOverride \: \(item\.clicks \|\| 0\)\)/g, 'acc + (item.manualClicksOverride !== undefined ? item.manualClicksOverride : (item.humanClicks !== undefined ? item.humanClicks : (item.clicks || 0)))');
+content = content.replace(/const activeA = a\.manualClicksOverride \!\=\= undefined \? a\.manualClicksOverride \: \(a\.clicks \|\| 0\);/g, 'const activeA = a.manualClicksOverride !== undefined ? a.manualClicksOverride : (a.humanClicks !== undefined ? a.humanClicks : (a.clicks || 0));');
+content = content.replace(/const activeB = b\.manualClicksOverride \!\=\= undefined \? b\.manualClicksOverride \: \(b\.clicks \|\| 0\);/g, 'const activeB = b.manualClicksOverride !== undefined ? b.manualClicksOverride : (b.humanClicks !== undefined ? b.humanClicks : (b.clicks || 0));');
+content = content.replace(/const currentHighest = topLink\.manualClicksOverride \!\=\= undefined \? topLink\.manualClicksOverride \: \(topLink\.clicks \|\| 0\);/g, 'const currentHighest = topLink.manualClicksOverride !== undefined ? topLink.manualClicksOverride : (topLink.humanClicks !== undefined ? topLink.humanClicks : (topLink.clicks || 0));');
+content = content.replace(/\.filter\(l => \(l\.manualClicksOverride \!\=\= undefined \? l\.manualClicksOverride \: \(l\.clicks \|\| 0\)\) > 0\)/g, '.filter(l => (l.manualClicksOverride !== undefined ? l.manualClicksOverride : (l.humanClicks !== undefined ? l.humanClicks : (l.clicks || 0))) > 0)');
+content = content.replace(/const clicksA = a\.manualClicksOverride \!\=\= undefined \? a\.manualClicksOverride \: \(a\.clicks \|\| 0\);/g, 'const clicksA = a.manualClicksOverride !== undefined ? a.manualClicksOverride : (a.humanClicks !== undefined ? a.humanClicks : (a.clicks || 0));');
+content = content.replace(/const clicksB = b\.manualClicksOverride \!\=\= undefined \? b\.manualClicksOverride \: \(b\.clicks \|\| 0\);/g, 'const clicksB = b.manualClicksOverride !== undefined ? b.manualClicksOverride : (b.humanClicks !== undefined ? b.humanClicks : (b.clicks || 0));');
+content = content.replace(/const activeClicks = l\.manualClicksOverride \!\=\= undefined \? l\.manualClicksOverride \: \(l\.clicks \|\| 0\);/g, 'const activeClicks = l.manualClicksOverride !== undefined ? l.manualClicksOverride : (l.humanClicks !== undefined ? l.humanClicks : (l.clicks || 0));');
+content = content.replace(/const linkClicks = tl\.manualClicksOverride \!\=\= undefined \? tl\.manualClicksOverride \: \(tl\.clicks \|\| 0\);/g, 'const linkClicks = tl.manualClicksOverride !== undefined ? tl.manualClicksOverride : (tl.humanClicks !== undefined ? tl.humanClicks : (tl.clicks || 0));');
+
+fs.writeFileSync('src/components/ShortioTracker.tsx', content);
